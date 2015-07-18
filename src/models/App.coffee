@@ -1,5 +1,6 @@
 # TODO: Refactor this model to use an internal Game Model instead
 # of containing the game logic directly.
+
 class window.App extends Backbone.Model
   initialize: ->
     @set 'deck', deck = new Deck()
@@ -21,10 +22,10 @@ class window.App extends Backbone.Model
       playerScore = @get('playerHand').scores()[1]
       if playerScore > 21
         playerScore = @get('playerHand').scores()[0]
-
       if playerScore > 21 and dealerScore > 21
         alert 'you both lose!'
       else if playerScore > dealerScore and playerScore < 22
+        alert winner
         alert 'you win!'
       else if dealerScore > playerScore and dealerScore < 22
         alert 'you lost!'

@@ -1,15 +1,21 @@
 assert = chai.assert
 
 describe 'deck', ->
-  deck = null
-  hand = null
 
   beforeEach ->
-    deck = new Deck()
-    hand = deck.dealPlayer()
+    
+   
 
-  describe 'hit', ->
-    it 'should give the last card from the deck', ->
-      assert.strictEqual deck.length, 50
-      assert.strictEqual deck.last(), hand.hit()
-      assert.strictEqual deck.length, 49
+  it 'dealer goes over', ->
+    model = new App()
+    deck = new Deck()
+    fiveCard = new Card({rank:5})
+    tenCard = new Card({rank:10})
+    fourCard = new Card({rank:4})
+    twoCard = new Card ({rank:2})
+    model.set 'playerHand', new Hand(tenCard, tenCard)
+    model.set 'dealerHand', new Hand(twoCard,tenCard,tenCard)
+    model.get('dealerHand').trigger('gameOver', model.get('dealerHand'))
+    console.log model
+    #model.get('dealerHand').stand()
+    assert.equal(window.winner, 'you')

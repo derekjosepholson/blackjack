@@ -1,4 +1,5 @@
 .card {
+  font-size: 15px;
   float: left;
   border: solid 1px black;
   width: 100px;
@@ -8,7 +9,14 @@
 }
 
 .covered {
-  background-color: black;
+  font-size: 1px;
+  background-color:black;
+  background-image: none;
+  background-image:
+    radial-gradient(midnightblue 9px, transparent 10px),        
+    repeating-radial-gradient(midnightblue 0, midnightblue 4px, transparent 5px, transparent 20px, midnightblue 21px, midnightblue 25px, transparent 26px, transparent 50px);    
+    background-size: 30px 30px, 90px 90px; 
+    background-position: 0 0;
 }
 
 .hand {
